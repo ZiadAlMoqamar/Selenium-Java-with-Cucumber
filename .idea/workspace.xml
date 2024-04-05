@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Integrating the script with Cucumber">
+    <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Generalizing scripts with scenario outline examples">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/CreateCourse.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/CreateCourse.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,23 +123,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712330807674</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Generalizing scripts with scenario outline examples">
+      <option name="closed" value="true" />
+      <created>1712335171278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712335171278</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding the initial full script" />
     <MESSAGE value="Integrating the script with Cucumber" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrating the script with Cucumber" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Generalizing scripts with scenario outline examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generalizing scripts with scenario outline examples" />
   </component>
 </project>

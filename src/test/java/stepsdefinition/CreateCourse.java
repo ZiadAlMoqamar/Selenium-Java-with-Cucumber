@@ -31,10 +31,10 @@ public class CreateCourse {
     @And("user was logged in with {string} as email and {string} as password")
     public void userWasLoggedInWithAnd(String email, String password) {
         WebElement emailTextField = driver.findElement(By.cssSelector("#Email"));
-        emailTextField.sendKeys("testregister@aaa.com");
+        emailTextField.sendKeys(email);
 
         WebElement passwordTextField = driver.findElement(By.cssSelector("#inputPassword"));
-        passwordTextField.sendKeys("Wakram_123");
+        passwordTextField.sendKeys(password);
 
         WebElement loginButton = driver.findElement(By.cssSelector("#btnLogin"));
         loginButton.click();
