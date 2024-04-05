@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Generalizing scripts with scenario outline examples">
+    <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Generalizing email and password">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pageobjects/AddCoursePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pageobjects/CoursesPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pageobjects/CreatedCoursePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pageobjects/LandingPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pageobjects/LoginPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/Hooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,13 +138,22 @@
       <option name="project" value="LOCAL" />
       <updated>1712335171278</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Generalizing email and password">
+      <option name="closed" value="true" />
+      <created>1712339907653</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712339907653</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding the initial full script" />
     <MESSAGE value="Integrating the script with Cucumber" />
     <MESSAGE value="Generalizing scripts with scenario outline examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generalizing scripts with scenario outline examples" />
+    <MESSAGE value="Generalizing email and password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generalizing email and password" />
   </component>
 </project>

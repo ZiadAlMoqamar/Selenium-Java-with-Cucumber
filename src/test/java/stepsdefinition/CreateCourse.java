@@ -4,116 +4,66 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobjects.*;
+
 import static org.junit.Assert.*;
 
-import java.time.Duration;
-import java.util.List;
 
-public class CreateCourse {
-    WebDriver driver = new ChromeDriver();
+public class CreateCourse extends Hooks {
+
+    WebDriver driver;
+    LoginPage loginPage;
+    LandingPage landingPage;
+    CoursesPage coursesPage;
+    AddCoursePage addCoursePage;
+    CreatedCoursePage createdCoursePage;
     String randomCourseName = "ziad" + (int) (Math.random() * 1000);
 
-    public CreateCourse(){}
+    public CreateCourse(){
+        setUp();
+        this.driver = getDriver();
+    }
 
     @Given("user was on the website")
     public void userWasOnTheWebsite(){
-        driver.get("https://swinji.azurewebsites.net");
+        loginPage = new LoginPage(driver);
     }
 
-    @And("user was logged in")
     @And("user was logged in with {string} as email and {string} as password")
     public void userWasLoggedInWithAnd(String email, String password) {
-        WebElement emailTextField = driver.findElement(By.cssSelector("#Email"));
-        emailTextField.sendKeys(email);
-
-        WebElement passwordTextField = driver.findElement(By.cssSelector("#inputPassword"));
-        passwordTextField.sendKeys(password);
-
-        WebElement loginButton = driver.findElement(By.cssSelector("#btnLogin"));
-        loginButton.click();
+        loginPage = loginPage
+                .enterEmail(email)
+                .enterPassword(password);
+        landingPage = loginPage.pressLoginButton();
     }
 
     @When("user goes to courses page")
     public void userGoesToCoursesPage() {
-        WebElement coursesButton = driver.findElement(By.cssSelector("#btnMyCoursesList"));
-        coursesButton.click();
+        coursesPage = landingPage.clickOnCoursesButton();
     }
 
     @And("user creates new course with {string} as course name and {string} as grade and {string} as owner email")
-    public void userCreatesNewCourseWithAsCourseNameAndAsGradeAndAsTeacherName(String courseName, String grade, String teacherName) {
-        WebElement addCourseButton = driver.findElement(By.cssSelector("#btnListAddCourse"));
-        addCourseButton.click();
-
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        WebElement courseNameTextField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#txtCourseName")));
-        String usedName = courseName;
-        if(courseName.equals("ziad")){
-            usedName = randomCourseName;
-        }
-        courseNameTextField.sendKeys(usedName);
-
-        WebElement courseGradeDropDown = driver.findElement(By.cssSelector("#courseGrade"));
-        courseGradeDropDown.click();
-
-        Select courseGradeSelect = new Select(courseGradeDropDown);
-        courseGradeSelect.selectByVisibleText(grade);
-
-        WebElement courseTeacherDropDown = driver.findElement(By.xpath("//*[@id='teacherOnBehalf']/div[1]/span"));
-        courseTeacherDropDown.click();
-        WebElement box = driver.findElement(By.cssSelector(".ui-select-choices.ui-select-choices-content.ui-select-dropdown.dropdown-menu"));
-
-        List<WebElement> options = box.findElements(By.id("lnkCourseOwnerMail"));
-        int chosenIndex = 0;
-        for (int i = 0; i < options.size(); i++) {
-            String optionText = options.get(i).getText();
-            if(optionText.contains(teacherName)){
-               chosenIndex = i;
-               break;
-            }
-        }
-        options.get(chosenIndex).click();
-
-
-        WebElement createCourseButton = driver.findElement(By.cssSelector("#btnSaveAsDraftCourse"));
-        createCourseButton.click();
+    public void userCreatesNewCourseWithCourseNameAndGradeAndTeacherName(String courseName, String grade, String ownerEmail) {
+        addCoursePage = coursesPage.clickOnAddCoursePage()
+                .enterCourseName(courseName,randomCourseName)
+                .enterCourseGrade(grade)
+                .enterCourseTeacher(ownerEmail);
+        createdCoursePage = addCoursePage.clickOnCreateCourseButton();
     }
 
     @Then("course with {string} as course name will be created successfully")
     public void courseWithAsCourseNameWillBeCreatedSuccessfully(String courseName) {
-        try {
-            WebElement coursesButton = driver.findElement(By.cssSelector("#btnMyCoursesList"));
-            coursesButton.click();
-        }
-        catch(org.openqa.selenium.StaleElementReferenceException ex)
-        {
-            WebElement coursesButton = driver.findElement(By.cssSelector("#btnMyCoursesList"));
-            coursesButton.click();
-        }
-
-        WebElement searchTextField = driver.findElement(By.cssSelector("#txtCourseSearch"));
+        coursesPage = createdCoursePage.clickOnCoursesButton()
+                .enterSearchCourseName(courseName,randomCourseName)
+                .clickOnSearchIcon();
         String usedName = courseName;
         if(courseName.equals("ziad")){
             usedName = randomCourseName;
         }
-        searchTextField.sendKeys(usedName);
-
-        WebElement searchIcon = driver.findElement(By.xpath("//em[@class='fa fa-search fa-lg']"));
-        searchIcon.click();
-
-        WebDriverWait searchResultsWait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        searchResultsWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='lnkListCourseSelcted']")));
-        List<WebElement> searchResults = driver.findElements(By.xpath("//*[@id='lnkListCourseSelcted']"));
-        assertTrue(searchResults.getFirst().getText().contains(usedName));
-
-        driver.quit();
+        assertTrue(coursesPage.getCreatedCourseName().contains(usedName));
+        if(driver!=null) {
+            tearDown();
+        }
     }
-
 }
