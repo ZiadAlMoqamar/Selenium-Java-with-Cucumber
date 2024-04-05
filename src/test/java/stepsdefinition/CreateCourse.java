@@ -18,7 +18,7 @@ import java.util.List;
 
 public class CreateCourse {
     WebDriver driver = new ChromeDriver();
-    String courseName = "ziad" + (int) (Math.random() * 1000);
+    String randomCourseName = "ziad" + (int) (Math.random() * 1000);
 
     public CreateCourse(){}
 
@@ -28,7 +28,8 @@ public class CreateCourse {
     }
 
     @And("user was logged in")
-    public void userWasLoggedIn() {
+    @And("user was logged in with {string} as email and {string} as password")
+    public void userWasLoggedInWithAnd(String email, String password) {
         WebElement emailTextField = driver.findElement(By.cssSelector("#Email"));
         emailTextField.sendKeys("testregister@aaa.com");
 
@@ -45,38 +46,48 @@ public class CreateCourse {
         coursesButton.click();
     }
 
-    @And("user creates new course")
-    public void userCreatesNewCourse() {
+    @And("user creates new course with {string} as course name and {string} as grade and {string} as owner email")
+    public void userCreatesNewCourseWithAsCourseNameAndAsGradeAndAsTeacherName(String courseName, String grade, String teacherName) {
         WebElement addCourseButton = driver.findElement(By.cssSelector("#btnListAddCourse"));
         addCourseButton.click();
 
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement courseNameTextField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#txtCourseName")));
-        courseNameTextField.sendKeys(courseName);
+        String usedName = courseName;
+        if(courseName.equals("ziad")){
+            usedName = randomCourseName;
+        }
+        courseNameTextField.sendKeys(usedName);
 
         WebElement courseGradeDropDown = driver.findElement(By.cssSelector("#courseGrade"));
         courseGradeDropDown.click();
 
         Select courseGradeSelect = new Select(courseGradeDropDown);
-
-        // Select the option by visible text
-        courseGradeSelect.selectByVisibleText("2");
+        courseGradeSelect.selectByVisibleText(grade);
 
         WebElement courseTeacherDropDown = driver.findElement(By.xpath("//*[@id='teacherOnBehalf']/div[1]/span"));
         courseTeacherDropDown.click();
         WebElement box = driver.findElement(By.cssSelector(".ui-select-choices.ui-select-choices-content.ui-select-dropdown.dropdown-menu"));
 
-        List<WebElement> options = box.findElements(By.id("UserRole"));
-        options.getFirst().click();
+        List<WebElement> options = box.findElements(By.id("lnkCourseOwnerMail"));
+        int chosenIndex = 0;
+        for (int i = 0; i < options.size(); i++) {
+            String optionText = options.get(i).getText();
+            if(optionText.contains(teacherName)){
+               chosenIndex = i;
+               break;
+            }
+        }
+        options.get(chosenIndex).click();
 
 
         WebElement createCourseButton = driver.findElement(By.cssSelector("#btnSaveAsDraftCourse"));
         createCourseButton.click();
     }
 
-    @Then("course will be created successfully")
-    public void courseWillBeCreatedSuccessfully() {
+    @Then("course with {string} as course name will be created successfully")
+    public void courseWithAsCourseNameWillBeCreatedSuccessfully(String courseName) {
         try {
             WebElement coursesButton = driver.findElement(By.cssSelector("#btnMyCoursesList"));
             coursesButton.click();
@@ -88,7 +99,11 @@ public class CreateCourse {
         }
 
         WebElement searchTextField = driver.findElement(By.cssSelector("#txtCourseSearch"));
-        searchTextField.sendKeys(courseName);
+        String usedName = courseName;
+        if(courseName.equals("ziad")){
+            usedName = randomCourseName;
+        }
+        searchTextField.sendKeys(usedName);
 
         WebElement searchIcon = driver.findElement(By.xpath("//em[@class='fa fa-search fa-lg']"));
         searchIcon.click();
@@ -96,8 +111,9 @@ public class CreateCourse {
         WebDriverWait searchResultsWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         searchResultsWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='lnkListCourseSelcted']")));
         List<WebElement> searchResults = driver.findElements(By.xpath("//*[@id='lnkListCourseSelcted']"));
-        assertTrue(searchResults.getFirst().getText().contains(courseName));
+        assertTrue(searchResults.getFirst().getText().contains(usedName));
 
         driver.quit();
     }
+
 }
