@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CreatedCoursePage {
+    private static final By COURSES_BUTTON_BY = By.cssSelector("#btnMyCoursesList");
     WebDriver driver;
 
     public CreatedCoursePage(WebDriver driver){
@@ -12,7 +13,7 @@ public class CreatedCoursePage {
     }
 
     public CoursesPage clickOnCoursesButton(){
-        WebElement coursesButton = driver.findElement(By.cssSelector("#btnMyCoursesList"));
+        WebElement coursesButton = driver.findElement(COURSES_BUTTON_BY);
         coursesButton.click();
         return new CoursesPage(driver);
     }
