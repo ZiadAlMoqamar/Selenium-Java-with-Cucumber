@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Removing unwanted script">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ZiadAlMoqamar"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:ZiadAlMoqamar/Selenium-Java-with-Cucumber.git",
+    "accountId": "98db1ffc-42c1-4f12-9110-e0acc1120555"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2ejcOZWTQoGkAfMupMreJmY3aIz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,15 +49,19 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Cucumber Java.Feature: CreateCourse.executor": "Run",
+    "JUnit.TestRunner.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Code/test",
+    "last_opened_file_path": "E:/Code/Testing/Selenium-Java-with-Cucumber",
     "onboarding.tips.debug.path": "E:/Code/Testing/Selenium with Cucumber/src/main/java/org/example/Main.java",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.archetype.catalogs"
   }
 }]]></component>
-  <component name="RunManager" selected="Cucumber Java.Feature: CreateCourse">
+  <component name="RunManager" selected="JUnit.TestRunner">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="Selenium-with-Cucumber" />
@@ -54,6 +76,8 @@
       </method>
     </configuration>
     <configuration name="Feature: CreateCourse" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-22" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/CreateCourse.feature" />
       <option name="GLUE" value="stepsdefinition" />
@@ -74,6 +98,23 @@
         <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Selenium-with-Cucumber" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH" value="BUNDLED" />
+      <option name="PACKAGE_NAME" value="runner" />
+      <option name="MAIN_CLASS_NAME" value="runner.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Selenium with Cucumber" />
       <method v="2">
@@ -90,6 +131,7 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Cucumber Java.Feature: CreateCourse" />
+      <item itemvalue="JUnit.TestRunner" />
     </list>
     <recent_temporary>
       <list>

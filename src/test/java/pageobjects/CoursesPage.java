@@ -48,6 +48,6 @@ public class CoursesPage {
         WebDriverWait searchResultsWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         searchResultsWait.until(ExpectedConditions.visibilityOfElementLocated(SEARCH_RESULT_BY));
         List<WebElement> searchResults = driver.findElements(SEARCH_RESULT_BY);
-        return searchResults.getFirst().getText();
+        return searchResults.get(0).getText();
     }
 }
