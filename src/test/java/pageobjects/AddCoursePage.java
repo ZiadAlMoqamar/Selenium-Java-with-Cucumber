@@ -1,6 +1,7 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,6 +12,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class AddCoursePage {
+    private static final String CLICKING_SCRIPT = "arguments[0].click();";
     private static final By COURSE_NAME_TEXT_FIELD_BY = By.cssSelector("#txtCourseName");
     private static final By COURSE_GRADE_DROP_DOWN_BY = By.cssSelector("#courseGrade");
     private static final By COURSE_TEACHER_DROP_DOWN_BY = By.xpath("//*[@id='teacherOnBehalf']/div[1]/span");
@@ -47,7 +49,6 @@ public class AddCoursePage {
         WebElement courseTeacherDropDown = driver.findElement(COURSE_TEACHER_DROP_DOWN_BY);
         courseTeacherDropDown.click();
         WebElement courseTeacherDropDownOptionsTile = driver.findElement(COURSE_TEACHER_DROP_DOWN_TILE_BY);
-
         List<WebElement> options = courseTeacherDropDownOptionsTile.findElements(COURSE_TEACHER_DROP_DOWN_MAIL_BY);
         int chosenIndex = 0;
         for (int i = 0; i < options.size(); i++) {
@@ -57,7 +58,9 @@ public class AddCoursePage {
                 break;
             }
         }
-        options.get(chosenIndex).click();
+        WebElement desiredOption = options.get(chosenIndex);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript(CLICKING_SCRIPT, desiredOption);
         return this;
     }
 

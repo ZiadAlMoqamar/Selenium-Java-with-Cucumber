@@ -1,5 +1,7 @@
 package stepsdefinition;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,7 +13,6 @@ import static org.junit.Assert.*;
 
 
 public class CreateCourse extends Hooks {
-
     WebDriver driver;
     LoginPage loginPage;
     LandingPage landingPage;
@@ -20,11 +21,16 @@ public class CreateCourse extends Hooks {
     CreatedCoursePage createdCoursePage;
     String randomCourseName = "ziad" + (int) (Math.random() * 1000);
 
-    public CreateCourse(){
-        setUp();
+    @Before
+    public void init(){
+        super.setUp();
         this.driver = getDriver();
     }
 
+    @After
+    public void cleanUp(){
+        super.tearDown();
+    }
     @Given("user was on the website")
     public void userWasOnTheWebsite(){
         loginPage = new LoginPage(driver);
@@ -56,14 +62,12 @@ public class CreateCourse extends Hooks {
     public void courseWithAsCourseNameWillBeCreatedSuccessfully(String courseName) {
         coursesPage = createdCoursePage.clickOnCoursesButton()
                 .enterSearchCourseName(courseName,randomCourseName)
+                .selectCreationDateDescendingOrder()
                 .clickOnSearchIcon();
         String usedName = courseName;
         if(courseName.equals("ziad")){
             usedName = randomCourseName;
         }
         assertTrue(coursesPage.getCreatedCourseName().contains(usedName));
-        if(driver!=null) {
-            tearDown();
-        }
     }
 }

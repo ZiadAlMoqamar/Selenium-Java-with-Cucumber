@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -15,6 +16,8 @@ public class CoursesPage {
     private static final By SEARCH_TEXT_FIELD_BY = By.cssSelector("#txtCourseSearch");
     private static final By SEARCH_ICON_BY = By.xpath("//em[@class='fa fa-search fa-lg']");
     private static final By SEARCH_RESULT_BY = By.xpath("//*[@id='lnkListCourseSelcted']");
+    private static final By COURSES_ORDER_DROP_DOWN_BY = By.id("CoursesOrderBy");
+    private static final String CREATION_DATE_DESCENDING_OPTION ="Creation Date Descending";
     WebDriver driver;
 
     public CoursesPage(WebDriver driver){
@@ -38,6 +41,12 @@ public class CoursesPage {
         return this;
     }
 
+    public CoursesPage selectCreationDateDescendingOrder(){
+        WebElement coursesOrderByDropDown = driver.findElement(COURSES_ORDER_DROP_DOWN_BY);
+        Select coursesOrderSelect = new Select(coursesOrderByDropDown);
+        coursesOrderSelect.selectByVisibleText(CREATION_DATE_DESCENDING_OPTION);
+        return this;
+    }
     public CoursesPage clickOnSearchIcon(){
         WebElement searchIcon = driver.findElement(SEARCH_ICON_BY);
         searchIcon.click();
