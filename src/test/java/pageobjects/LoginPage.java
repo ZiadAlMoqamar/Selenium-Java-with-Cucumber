@@ -9,6 +9,7 @@ public class LoginPage {
     private static final By EMAIL_TEXT_FIELD_BY = By.cssSelector("#Email");
     private static final By PASSOWRD_TEXT_FIELD_BY = By.cssSelector("#inputPassword");
     private static final By LOGIN_BUTTON_BY = By.cssSelector("#btnLogin");
+    private static final By LOGIN_HEADER_BY = By.xpath("//h1[normalize-space()='Login']");
     WebDriver driver;
 
     public LoginPage(WebDriver driver){
@@ -32,5 +33,10 @@ public class LoginPage {
         WebElement loginButton = driver.findElement(LOGIN_BUTTON_BY);
         loginButton.click();
         return new LandingPage(driver);
+    }
+
+    public String getLoginPageHeader(){
+        WebElement loginHeader = driver.findElement(LOGIN_HEADER_BY);
+        return loginHeader.getText();
     }
 }

@@ -1,28 +1,29 @@
 package stepsdefinition;
 
 
-import org.openqa.selenium.WebDriver;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class Hooks{
-    protected ThreadLocal<WebDriver> driver  = new ThreadLocal<>();
+ public class Hooks{
+     private final TestContext testContext;
 
-    protected WebDriver getDriver() {
-        return driver.get();
+     public Hooks(TestContext context) {
+         this.testContext = context;
+     }
+    @Before
+    public void setUp() {
+         testContext.setDriver(new ChromeDriver());
+         testContext.getDriver().manage().window().maximize();
+         testContext.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
-    protected void setUp() {
-        driver.set(new ChromeDriver());
-        getDriver().manage().window().maximize();
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-    }
 
-
-    protected void tearDown() {
-        if (driver != null) {
-            driver.get().quit();
-            driver.remove();
+    @After
+    public void tearDown() {
+        if (testContext.getDriver() != null) {
+            testContext.getDriver().quit();
         }
     }
 }

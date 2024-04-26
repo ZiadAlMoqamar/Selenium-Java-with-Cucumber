@@ -12,7 +12,7 @@ import pageobjects.*;
 import static org.junit.Assert.*;
 
 
-public class CreateCourse extends Hooks {
+public class CreateCourse {
     WebDriver driver;
     LoginPage loginPage;
     LandingPage landingPage;
@@ -21,19 +21,16 @@ public class CreateCourse extends Hooks {
     CreatedCoursePage createdCoursePage;
     String randomCourseName = "ziad" + (int) (Math.random() * 1000);
 
-    @Before
-    public void init(){
-        super.setUp();
-        this.driver = getDriver();
+
+    public CreateCourse(TestContext context){
+        this.driver = context.getDriver();
     }
 
-    @After
-    public void cleanUp(){
-        super.tearDown();
-    }
+
     @Given("user was on the website")
-    public void userWasOnTheWebsite(){
+    public LoginPage userWasOnTheWebsite(){
         loginPage = new LoginPage(driver);
+        return loginPage;
     }
 
     @And("user was logged in with {string} as email and {string} as password")

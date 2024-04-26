@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Removing unwanted script">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Optimizing the script &amp; adding threadLocal in Hooks">
+      <change afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/LandingTheWebsite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/TestContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/LandingTheWebsite.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageobjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageobjects/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepsdefinition/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/Hooks.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,21 +29,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ZiadAlMoqamar"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ZiadAlMoqamar&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:ZiadAlMoqamar/Selenium-Java-with-Cucumber.git",
-    "accountId": "98db1ffc-42c1-4f12-9110-e0acc1120555"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:ZiadAlMoqamar/Selenium-Java-with-Cucumber.git&quot;,
+    &quot;accountId&quot;: &quot;98db1ffc-42c1-4f12-9110-e0acc1120555&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2ejcOZWTQoGkAfMupMreJmY3aIz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,7 +53,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Cucumber Java.Feature: CreateCourse.executor": "Run",
+    "Cucumber Java.Feature: CreateCourse.executor": "Debug",
+    "Cucumber Java.Feature: LandingTheWebsite.executor": "Debug",
     "JUnit.TestRunner.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -61,7 +67,7 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.archetype.catalogs"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.TestRunner">
+  <component name="RunManager" selected="Cucumber Java.Feature: CreateCourse">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="Selenium-with-Cucumber" />
@@ -98,6 +104,25 @@
         <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Feature: LandingTheWebsite" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/LandingTheWebsite.feature" />
+      <option name="GLUE" value="stepsdefinition" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="Selenium-with-Cucumber" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: LandingTheWebsite" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestRunner" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="Selenium-with-Cucumber" />
       <extension name="coverage">
@@ -130,12 +155,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Cucumber Java.Feature: LandingTheWebsite" />
       <item itemvalue="Cucumber Java.Feature: CreateCourse" />
       <item itemvalue="JUnit.TestRunner" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Cucumber Java.Feature: CreateCourse" />
+        <item itemvalue="Cucumber Java.Feature: LandingTheWebsite" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -197,8 +224,27 @@
       <option name="project" value="LOCAL" />
       <updated>1712356921557</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Optimizing the script &amp; adding threadLocal in Hooks">
+      <option name="closed" value="true" />
+      <created>1712646393660</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712646393660</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding the initial full script" />
@@ -207,6 +253,22 @@
     <MESSAGE value="Generalizing email and password" />
     <MESSAGE value="Adding page object model" />
     <MESSAGE value="Removing unwanted script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing unwanted script" />
+    <MESSAGE value="Optimizing the script &amp; adding threadLocal in Hooks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimizing the script &amp; adding threadLocal in Hooks" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java</url>
+          <line>24</line>
+          <properties class="stepsdefinition.CreateCourse" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
