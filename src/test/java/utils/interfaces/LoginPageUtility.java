@@ -1,6 +1,5 @@
 package utils.interfaces;
 
-import org.openqa.selenium.WebDriver;
 import pageobjects.LoginPage;
 
 public interface LoginPageUtility {

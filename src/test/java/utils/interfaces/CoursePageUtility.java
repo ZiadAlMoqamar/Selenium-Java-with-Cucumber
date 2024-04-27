@@ -1,7 +1,7 @@
 package utils.interfaces;
 
 import pageobjects.AddCoursePage;
-import utils.parameters.CourseParameters;
+import parameters.CourseParameters;
 
 public interface CoursePageUtility {
     AddCoursePage createCourse(CourseParameters parameters);

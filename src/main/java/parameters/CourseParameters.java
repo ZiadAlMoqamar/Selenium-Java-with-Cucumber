@@ -1,4 +1,4 @@
-package utils.parameters;
+package parameters;
 
 public class CourseParameters {
     private String courseName;

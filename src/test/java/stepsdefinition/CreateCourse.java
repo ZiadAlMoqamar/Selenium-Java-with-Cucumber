@@ -9,7 +9,7 @@ import pageobjects.*;
 import utils.CoursePageUtilityImpl;
 import utils.LoginPageUtilityImpl;
 import utils.interfaces.CoursePageUtility;
-import utils.parameters.CourseParameters;
+import parameters.CourseParameters;
 
 import static org.junit.Assert.*;
 
