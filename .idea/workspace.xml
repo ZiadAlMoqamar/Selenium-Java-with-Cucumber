@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Optimizing the script &amp; adding threadLocal in Hooks">
-      <change afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/LandingTheWebsite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/TestContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/LandingTheWebsite.feature" afterDir="false" />
+    <list default="true" id="fd42832d-a185-4bd8-824b-81b323e72a84" name="Changes" comment="Adding test context and applying parallelism">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/CoursePageUtilityImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/LoginPageUtilityImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/interfaces/CoursePageUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/interfaces/LoginPageUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/parameters/CourseParameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageobjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageobjects/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepsdefinition/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/Hooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepsdefinition/LandingTheWebsite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepsdefinition/LandingTheWebsite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -57,6 +59,7 @@
     "Cucumber Java.Feature: LandingTheWebsite.executor": "Debug",
     "JUnit.TestRunner.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Code/Testing/Selenium-Java-with-Cucumber",
@@ -64,7 +67,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.archetype.catalogs"
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RunManager" selected="Cucumber Java.Feature: CreateCourse">
@@ -232,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712646393660</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Adding test context and applying parallelism">
+      <option name="closed" value="true" />
+      <created>1714157499501</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714157499502</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -254,21 +265,7 @@
     <MESSAGE value="Adding page object model" />
     <MESSAGE value="Removing unwanted script" />
     <MESSAGE value="Optimizing the script &amp; adding threadLocal in Hooks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimizing the script &amp; adding threadLocal in Hooks" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/stepsdefinition/CreateCourse.java</url>
-          <line>24</line>
-          <properties class="stepsdefinition.CreateCourse" method="&lt;init&gt;">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Adding test context and applying parallelism" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding test context and applying parallelism" />
   </component>
 </project>

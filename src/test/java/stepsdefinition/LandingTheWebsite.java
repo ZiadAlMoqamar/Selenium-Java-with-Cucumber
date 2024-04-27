@@ -5,23 +5,22 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageobjects.LoginPage;
+import utils.LoginPageUtilityImpl;
 
 import static org.junit.Assert.assertEquals;
 
 
 public class LandingTheWebsite{
-    private final CreateCourse createCourseObj;
     WebDriver driver;
     LoginPage loginPage;
 
     public LandingTheWebsite(TestContext context){
-        createCourseObj = new CreateCourse(context);
-        this.driver = createCourseObj.driver;
+        this.driver = context.getDriver();
     }
 
     @When("user goes to the website")
     public void userGoesOnTheWebsite(){
-        loginPage = createCourseObj.userWasOnTheWebsite();
+        loginPage = new LoginPage(driver);
     }
 
     @Then("User will be on the login page")

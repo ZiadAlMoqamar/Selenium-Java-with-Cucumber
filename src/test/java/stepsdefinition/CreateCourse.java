@@ -1,13 +1,15 @@
 package stepsdefinition;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageobjects.*;
+import utils.CoursePageUtilityImpl;
+import utils.LoginPageUtilityImpl;
+import utils.interfaces.CoursePageUtility;
+import utils.parameters.CourseParameters;
 
 import static org.junit.Assert.*;
 
@@ -28,16 +30,15 @@ public class CreateCourse {
 
 
     @Given("user was on the website")
-    public LoginPage userWasOnTheWebsite(){
+    public void userWasOnTheWebsite(){
         loginPage = new LoginPage(driver);
-        return loginPage;
     }
 
     @And("user was logged in with {string} as email and {string} as password")
     public void userWasLoggedInWithAnd(String email, String password) {
-        loginPage = loginPage
-                .enterEmail(email)
-                .enterPassword(password);
+        LoginPageUtilityImpl loginPageUtility = new LoginPageUtilityImpl(loginPage);
+        loginPage = loginPageUtility.loggingIn(email,password);
+
         landingPage = loginPage.pressLoginButton();
     }
 
@@ -48,10 +49,15 @@ public class CreateCourse {
 
     @And("user creates new course with {string} as course name and {string} as grade and {string} as owner email")
     public void userCreatesNewCourseWithCourseNameAndGradeAndTeacherName(String courseName, String grade, String ownerEmail) {
-        addCoursePage = coursesPage.clickOnAddCoursePage()
-                .enterCourseName(courseName,randomCourseName)
-                .enterCourseGrade(grade)
-                .enterCourseTeacher(ownerEmail);
+        CourseParameters parameters = new CourseParameters();
+        parameters.setCourseName(courseName);
+        parameters.setRandomCourseName(randomCourseName);
+        parameters.setGrade(grade);
+        parameters.setOwnerEmail(ownerEmail);
+
+        CoursePageUtility coursePageUtility = new CoursePageUtilityImpl(coursesPage);
+        addCoursePage = coursePageUtility.createCourse(parameters);
+
         createdCoursePage = addCoursePage.clickOnCreateCourseButton();
     }
 
